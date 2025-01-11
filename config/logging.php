@@ -85,7 +85,7 @@ return [
         'papertrail' => [
             'driver' => 'monolog',
             'level' => env('LOG_LEVEL', 'debug'),
-            'handler' => env('PAPERTRAIL_URL') && env('PAPERTRAIL_PORT') ? \Monolog\Handler\SocketHandler::class : null,
+            'handler' => env('PAPERTRAIL_URL') && env('PAPERTRAIL_PORT') ,SyslogUdpHandler::class,
             'handler_with' => [
                 'host' => env('PAPERTRAIL_URL'),
                 'port' => env('PAPERTRAIL_PORT'),
